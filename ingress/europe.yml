@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: europe
+  name: europe
+  namespace: iti-45
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: europe
+  template:
+    metadata:
+      labels:
+        app: europe
+    spec:
+      containers:
+      - image: husseingalal/europe:latest
+        name: europe
+        ports:
+          - containerPort: 80
+            name: europe-port
+

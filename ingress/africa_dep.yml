@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: africa
+  name: africa
+  namespace: iti-45
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: africa
+  template:
+    metadata:
+      labels:
+        app: africa
+    spec:
+      containers:
+      - image: husseingalal/africa:latest
+        name: africa
+        ports:
+          - name: africa-port
+            containerPort: 80
